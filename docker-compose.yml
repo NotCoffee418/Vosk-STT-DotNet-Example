@@ -1,0 +1,13 @@
+version: '3'
+services:
+  vodsummaryservice:
+    build:
+      context: .
+      dockerfile: ./VodSummary.Service/Dockerfile
+    volumes:
+      - .:/app
+      - /data/vod-summarizer/.env:/app/.env
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8000:80"
